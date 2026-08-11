@@ -1,0 +1,1452 @@
+/* =========================================================
+   PAULO RAMÃO — TERAPEUTA CATÓLICO
+   ========================================================= */
+
+/* ================= RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f8f6f1;
+  color: #252722;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ================= VARIABLES ================= */
+
+:root {
+  --background: #f8f6f1;
+  --background-dark: #eae6dd;
+
+  --white: #ffffff;
+
+  --text: #252722;
+  --text-light: #6e7069;
+
+  --green: #31483d;
+  --green-dark: #263a31;
+
+  --gold: #b49a63;
+  --gold-light: #d3c29c;
+
+  --border: rgba(37, 39, 34, 0.12);
+
+  --container: 1180px;
+
+  --radius: 4px;
+}
+
+/* ================= GLOBAL ================= */
+
+.container {
+  width: min(var(--container), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 120px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  color: var(--gold);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(38px, 4vw, 58px);
+}
+
+p {
+  color: var(--text-light);
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  height: 84px;
+
+  background: rgba(248, 246, 241, 0.94);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.1;
+}
+
+.logo span {
+  font-family: "Playfair Display", serif;
+
+  font-size: 22px;
+}
+
+.logo small {
+  margin-top: 5px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: var(--text-light);
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav a {
+  position: relative;
+
+  transition: color 0.25s ease;
+}
+
+.nav a:not(.nav-button)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--gold);
+
+  transition: width 0.25s ease;
+}
+
+.nav a:not(.nav-button):hover::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: var(--green);
+}
+
+.nav-button {
+  padding: 12px 20px;
+
+  background: var(--green);
+  color: white;
+
+  transition: background 0.25s ease;
+}
+
+.nav-button:hover {
+  background: var(--green-dark);
+}
+
+/* ================= MOBILE MENU ================= */
+
+.menu-button {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 24px;
+  height: 1px;
+
+  margin: 5px auto;
+
+  background: var(--text);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: calc(100vh - 84px);
+
+  display: flex;
+  align-items: center;
+
+  padding: 90px 0;
+}
+
+.hero-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 6vw, 82px);
+
+  letter-spacing: -0.03em;
+
+  margin-bottom: 30px;
+}
+
+.hero h1 em {
+  display: block;
+
+  color: var(--green);
+
+  font-style: normal;
+}
+
+.hero-description {
+  max-width: 560px;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  margin-bottom: 38px;
+}
+
+/* ================= HERO BUTTONS ================= */
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+
+  margin-bottom: 55px;
+}
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 15px 24px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  border: 1px solid transparent;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--green);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--green-dark);
+}
+
+.button-secondary {
+  border-color: var(--border);
+}
+
+.button-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ================= HERO INFO ================= */
+
+.hero-info {
+  display: flex;
+
+  gap: 45px;
+}
+
+.hero-info div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.hero-info strong {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+}
+
+.hero-info span {
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+/* =========================================================
+   HERO IMAGE
+   A imagem e a caixa agora ficam SEPARADAS
+   ========================================================= */
+
+.hero-image {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+
+  height: auto;
+
+  width: 100%;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 560px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 2px;
+}
+
+/* ================= IMAGE CARD ================= */
+
+.image-card {
+  position: static;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 16px 22px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+}
+
+.image-card-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  color: var(--gold);
+
+  border: 1px solid var(--gold-light);
+
+  border-radius: 50%;
+}
+
+.image-card div {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-card strong {
+  font-size: 13px;
+}
+
+.image-card span:last-child {
+  font-size: 11px;
+
+  color: var(--text-light);
+}
+
+/* ================= INTRO ================= */
+
+.intro {
+  padding: 130px 0;
+
+  background: var(--green);
+
+  color: white;
+}
+
+.intro-content {
+  max-width: 800px;
+
+  text-align: center;
+}
+
+.intro .eyebrow {
+  color: var(--gold-light);
+}
+
+.intro h2 {
+  margin-bottom: 30px;
+
+  font-size: clamp(42px, 5vw, 64px);
+}
+
+.intro p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
+}
+
+/* ================= SECTION HEADING ================= */
+
+.section-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  margin-bottom: 65px;
+}
+
+.section-heading > div {
+  max-width: 650px;
+}
+
+.section-heading p {
+  max-width: 330px;
+
+  font-size: 14px;
+}
+
+.section-heading.centered {
+  display: block;
+
+  max-width: 700px;
+
+  margin: 0 auto 70px;
+
+  text-align: center;
+}
+
+.section-heading.centered h2 {
+  margin: auto;
+}
+
+/* ================= THERAPIES ================= */
+
+.therapy-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.therapy-card {
+  position: relative;
+
+  padding: 55px;
+
+  min-height: 400px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.therapy-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+}
+
+.therapy-card.featured {
+  background: var(--background-dark);
+}
+
+.card-number {
+  margin-bottom: 60px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  color: var(--gold);
+}
+
+.therapy-card h3 {
+  margin-bottom: 20px;
+
+  font-size: 35px;
+}
+
+.therapy-card p {
+  max-width: 500px;
+
+  margin-bottom: 30px;
+
+  font-size: 14px;
+}
+
+.tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.tags span {
+  padding: 7px 11px;
+
+  font-size: 10px;
+
+  border: 1px solid var(--border);
+
+  color: var(--text-light);
+}
+
+/* ================= QUOTE ================= */
+
+.quote-section {
+  padding: 150px 0;
+
+  background: var(--background-dark);
+}
+
+.quote-content {
+  max-width: 900px;
+
+  text-align: center;
+}
+
+.quote-mark {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 80px;
+
+  line-height: 0.5;
+
+  color: var(--gold);
+}
+
+blockquote {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(38px, 5vw, 62px);
+
+  line-height: 1.2;
+}
+
+.quote-author {
+  display: block;
+
+  margin-top: 30px;
+
+  font-size: 12px;
+
+  color: var(--text-light);
+
+  letter-spacing: 0.08em;
+}
+
+/* ================= SERVICE ================= */
+
+.service-grid {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+.service-image {
+  width: 100%;
+  height: 620px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.service-content h2 {
+  margin-bottom: 30px;
+}
+
+.service-content > p {
+  max-width: 560px;
+
+  margin-bottom: 18px;
+
+  font-size: 14px;
+}
+
+.service-details {
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.service-details > div {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+}
+
+.detail-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 38px;
+  height: 38px;
+
+  border: 1px solid var(--border);
+
+  font-size: 10px;
+
+  color: var(--gold);
+}
+
+.service-details strong {
+  font-size: 13px;
+}
+
+.service-details p {
+  margin-top: 3px;
+
+  font-size: 12px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+  background: var(--background-dark);
+}
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 0.75fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+.about-content {
+  max-width: 650px;
+}
+
+.about-content h2 {
+  margin-bottom: 35px;
+}
+
+.about-content p {
+  margin-bottom: 18px;
+
+  font-size: 14px;
+}
+
+.about-highlight {
+  position: relative;
+
+  padding: 60px 50px;
+
+  background: var(--green);
+
+  color: white;
+}
+
+.about-symbol {
+  display: block;
+
+  margin-bottom: 30px;
+
+  color: var(--gold-light);
+
+  font-size: 24px;
+}
+
+.about-highlight p {
+  font-family: "Playfair Display", serif;
+
+  font-size: 29px;
+
+  line-height: 1.4;
+
+  color: white;
+}
+
+/* ================= PROCESS ================= */
+
+.process-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1px;
+
+  background: var(--border);
+
+  border: 1px solid var(--border);
+}
+
+.process-item {
+  min-height: 300px;
+
+  padding: 45px;
+
+  background: var(--background);
+}
+
+.process-item > span {
+  display: block;
+
+  margin-bottom: 55px;
+
+  color: var(--gold);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.process-item h3 {
+  margin-bottom: 15px;
+
+  font-size: 27px;
+}
+
+.process-item p {
+  font-size: 13px;
+}
+
+/* ================= FAQ ================= */
+
+.faq {
+  background: var(--background-dark);
+}
+
+.faq-grid {
+  display: grid;
+
+  grid-template-columns: 0.7fr 1fr;
+
+  gap: 100px;
+}
+
+.faq-intro h2 {
+  margin-bottom: 25px;
+}
+
+.faq-intro p {
+  max-width: 400px;
+
+  margin-bottom: 25px;
+
+  font-size: 14px;
+}
+
+.text-link {
+  display: inline-block;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--green);
+
+  border-bottom: 1px solid var(--green);
+}
+
+.faq-list {
+  border-top: 1px solid var(--border);
+}
+
+details {
+  border-bottom: 1px solid var(--border);
+}
+
+summary {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 0;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary span {
+  font-size: 20px;
+
+  font-weight: 300;
+
+  color: var(--gold);
+
+  transition: transform 0.25s ease;
+}
+
+details[open] summary span {
+  transform: rotate(45deg);
+}
+
+details p {
+  max-width: 700px;
+
+  padding: 0 0 25px;
+
+  font-size: 13px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+  padding: 140px 0;
+
+  background: var(--green);
+
+  color: white;
+}
+
+.contact-content {
+  max-width: 850px;
+
+  text-align: center;
+}
+
+.contact .eyebrow {
+  color: var(--gold-light);
+}
+
+.contact h2 {
+  margin-bottom: 25px;
+}
+
+.contact p {
+  max-width: 550px;
+
+  margin: 0 auto 40px;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.button-light {
+  background: white;
+
+  color: var(--green);
+}
+
+.button-light:hover {
+  background: var(--gold-light);
+
+  color: var(--text);
+}
+
+.contact-info {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 35px;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 70px 0 25px;
+
+  background: #202d27;
+
+  color: white;
+}
+
+.footer-content {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr 1fr;
+
+  gap: 50px;
+
+  padding-bottom: 60px;
+}
+
+.footer-logo small {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-content > div > p {
+  margin-top: 18px;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-links,
+.footer-contact {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  font-size: 12px;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: rgba(255, 255, 255, 0.6);
+
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: white;
+}
+
+.footer-contact strong {
+  margin-bottom: 5px;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+}
+
+.footer-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-size: 10px;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVE — TABLETS E TELAS MENORES
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+  }
+
+  .hero-image img {
+    height: 560px;
+  }
+
+  .service-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .service-image {
+    height: 500px;
+  }
+
+  .about-highlight {
+    max-width: 600px;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .section {
+    padding: 85px 0;
+  }
+
+  /* HEADER */
+
+  .header {
+    height: 74px;
+  }
+
+  .nav {
+    position: fixed;
+
+    top: 74px;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 15px 24px 25px;
+
+    background: var(--background);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 15px 0;
+  }
+
+  .nav-button {
+    text-align: center;
+
+    margin-top: 10px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding: 70px 0;
+  }
+
+  .hero-grid {
+    gap: 50px;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-info {
+    gap: 25px;
+  }
+
+  /* HERO IMAGE */
+
+  .hero-image {
+    height: auto;
+
+    gap: 20px;
+  }
+
+  .hero-image img {
+    height: 500px;
+
+    object-position: center;
+  }
+
+  .image-card {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 16px 18px;
+  }
+
+  /* SECTION HEADINGS */
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading p {
+    margin-top: 25px;
+  }
+
+  /* THERAPIES */
+
+  .therapy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .therapy-card {
+    padding: 40px;
+  }
+
+  /* PROCESS */
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-item {
+    min-height: auto;
+  }
+
+  /* FOOTER */
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — CELULARES
+   ========================================================= */
+
+@media (max-width: 500px) {
+  .container {
+    width: min(var(--container), calc(100% - 32px));
+  }
+
+  /* HEADER */
+
+  .header {
+    height: 74px;
+  }
+
+  .logo span {
+    font-size: 20px;
+  }
+
+  .logo small {
+    font-size: 8px;
+  }
+
+  .nav {
+    top: 74px;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    margin-bottom: 40px;
+  }
+
+  .hero-info {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  /* HERO IMAGE */
+
+  .hero-image {
+    height: auto;
+
+    gap: 18px;
+  }
+
+  .hero-image img {
+    height: 420px;
+
+    object-position: center;
+  }
+
+  .image-card {
+    width: 100%;
+
+    padding: 15px;
+
+    gap: 12px;
+  }
+
+  .image-card-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .image-card strong {
+    font-size: 12px;
+  }
+
+  .image-card span:last-child {
+    font-size: 10px;
+  }
+
+  /* SECTIONS */
+
+  .intro,
+  .quote-section,
+  .contact {
+    padding: 100px 0;
+  }
+
+  /* THERAPY */
+
+  .therapy-card {
+    padding: 30px;
+  }
+
+  .therapy-card h3 {
+    font-size: 30px;
+  }
+
+  /* SERVICE */
+
+  .service-image {
+    height: 400px;
+  }
+
+  /* ABOUT */
+
+  .about-highlight {
+    padding: 40px 30px;
+  }
+
+  .about-highlight p {
+    font-size: 24px;
+  }
+
+  /* CONTACT */
+
+  .contact-info {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  /* FOOTER */
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+}
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-image img {
+    height: 360px;
+  }
+
+  .therapy-card {
+    padding: 24px;
+  }
+
+  .process-item {
+    padding: 30px;
+  }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--gold);
+
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
