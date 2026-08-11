@@ -4,19 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Paulo Sérgio Ramão – Terapeuta Católico. Atendimento individual e para casais, online e presencial em Assis/SP."
+      content="Paulo Sérgio Ramão – Terapeuta Católico em Assis/SP. Atendimento individual e para casais, online e presencial. Um espaço de escuta, acolhimento e orientação com base nos valores da fé católica."
     />
+    <meta name="keywords" content="terapeuta católico, terapia individual, terapia para casais, aconselhamento, Assis SP, cura interior" />
+    <meta name="author" content="Paulo Sérgio Ramão" />
 
-    <title>Paulo Ramão | Terapeuta Católico</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Paulo Ramão | Terapeuta Católico" />
+    <meta property="og:description" content="Um espaço de escuta, acolhimento e orientação terapêutica integrada à fé católica. Atendimento em Assis/SP e online." />
+    <meta property="og:type" content="website" />
 
-    <!-- Google Fonts -->
+    <title>Paulo Ramão | Terapeuta Católico · Assis/SP</title>
+
+    <!-- Google Fonts: Lora + Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -25,16 +32,18 @@
   </head>
 
   <body>
+
     <!-- ================= HEADER ================= -->
 
-    <header class="header">
+    <header class="header" role="banner">
       <div class="container header-content">
-        <a href="#inicio" class="logo">
+
+        <a href="#inicio" class="logo" aria-label="Paulo Ramão – Terapeuta Católico, ir para o início">
           <span>Paulo Ramão</span>
           <small>Terapeuta Católico</small>
         </a>
 
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Menu principal">
           <a href="#inicio">Início</a>
           <a href="#terapias">Terapias</a>
           <a href="#sobre">Sobre</a>
@@ -42,23 +51,32 @@
           <a href="#contato" class="nav-button">Agendar conversa</a>
         </nav>
 
-        <button class="menu-button" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button
+          class="menu-button"
+          id="menu-toggle"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
+
       </div>
     </header>
 
-    <main>
+    <main id="conteudo-principal">
+
       <!-- ================= HERO ================= -->
 
-      <section class="hero" id="inicio">
+      <section class="hero" id="inicio" aria-labelledby="hero-heading">
         <div class="container hero-grid">
-          <div class="hero-content">
-            <span class="eyebrow"> TERAPIA • ACOLHIMENTO • FÉ </span>
 
-            <h1>
+          <div class="hero-content reveal">
+            <span class="eyebrow" aria-hidden="true">Terapia · Acolhimento · Fé</span>
+
+            <h1 id="hero-heading">
               Sua jornada de
               <em>cura começa aqui.</em>
             </h1>
@@ -69,34 +87,48 @@
             </p>
 
             <div class="hero-buttons">
-              <a href="#contato" class="button button-primary">
+              <a href="#contato" class="button button-primary" id="hero-cta-primary">
                 Agendar conversa
-                <span>↗</span>
+                <span class="arrow" aria-hidden="true">↗</span>
               </a>
 
-              <a href="#sobre" class="button button-secondary">
+              <a href="#sobre" class="button button-secondary" id="hero-cta-secondary">
                 Conhecer meu trabalho
               </a>
             </div>
 
-            <div class="hero-info">
-              <div>
+            <div class="hero-info" aria-label="Informações de atendimento">
+              <div class="hero-info-item">
                 <strong>Atendimento</strong>
                 <span>Online e presencial</span>
               </div>
 
-              <div>
+              <div class="hero-info-item">
                 <strong>Local</strong>
                 <span>Assis / SP</span>
+              </div>
+
+              <div class="hero-info-item">
+                <strong>1ª Conversa</strong>
+                <span>Gratuita · 30 min</span>
               </div>
             </div>
           </div>
 
-          <div class="hero-image">
-            <img src="assets/img1.png" alt="Paulo Ramão, terapeuta católico" />
+          <div class="hero-image reveal" style="transition-delay: 0.15s">
+            <div class="hero-image-frame">
+              <img
+                src="assets/img1.png"
+                alt="Paulo Ramão em sessão de aconselhamento com um casal em ambiente acolhedor"
+                width="920"
+                height="1226"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
 
-            <div class="image-card">
-              <span class="image-card-icon">✦</span>
+            <div class="image-card" role="complementary" aria-label="Mensagem de boas-vindas">
+              <div class="image-card-icon" aria-hidden="true">✦</div>
 
               <div>
                 <strong>Um espaço para você</strong>
@@ -104,16 +136,17 @@
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      <!-- ================= INTRO ================= -->
+      <!-- ================= INTRO BAND ================= -->
 
-      <section class="intro">
-        <div class="container intro-content">
-          <span class="eyebrow">UM OLHAR INTEGRAL</span>
+      <section class="intro" aria-labelledby="intro-heading">
+        <div class="container intro-content reveal">
+          <span class="eyebrow">Um olhar integral</span>
 
-          <h2>Cuidar da mente também é cuidar da vida.</h2>
+          <h2 id="intro-heading">Cuidar da mente também é cuidar da vida.</h2>
 
           <p>
             Acredito que cada pessoa possui uma história única. Por isso, o
@@ -125,15 +158,14 @@
 
       <!-- ================= TERAPIAS ================= -->
 
-      <section class="therapies section" id="terapias">
+      <section class="therapies section" id="terapias" aria-labelledby="therapies-heading">
         <div class="container">
-          <div class="section-heading">
+
+          <div class="section-heading reveal">
             <div>
-              <span class="eyebrow">COMO POSSO AJUDAR</span>
-
-              <h2>Encontre o espaço que você precisa.</h2>
+              <span class="eyebrow">Como posso ajudar</span>
+              <h2 id="therapies-heading">Encontre o espaço que você precisa.</h2>
             </div>
-
             <p>
               Atendimento pensado para acolher diferentes momentos e
               necessidades da vida.
@@ -141,19 +173,19 @@
           </div>
 
           <div class="therapy-grid">
+
             <!-- TERAPIA INDIVIDUAL -->
+            <article class="therapy-card reveal" aria-labelledby="therapy-individual-title">
+              <div class="card-number" aria-label="Modalidade 01">01</div>
 
-            <article class="therapy-card">
-              <div class="card-number">01</div>
-
-              <h3>Terapia Individual</h3>
+              <h3 id="therapy-individual-title">Terapia Individual</h3>
 
               <p>
                 Um espaço reservado para compreender o que você está vivendo e
                 buscar novos caminhos com acompanhamento e acolhimento.
               </p>
 
-              <div class="tags">
+              <div class="tags" aria-label="Temas trabalhados">
                 <span>Ansiedade</span>
                 <span>Depressão</span>
                 <span>Luto</span>
@@ -166,11 +198,10 @@
             </article>
 
             <!-- TERAPIA PARA CASAIS -->
+            <article class="therapy-card featured reveal" style="transition-delay: 0.1s" aria-labelledby="therapy-couples-title">
+              <div class="card-number" aria-label="Modalidade 02">02</div>
 
-            <article class="therapy-card featured">
-              <div class="card-number">02</div>
-
-              <h3>Terapia para Casais</h3>
+              <h3 id="therapy-couples-title">Terapia para Casais</h3>
 
               <p>
                 Um espaço para o casal compreender seus conflitos, melhorar a
@@ -178,7 +209,7 @@
                 relacionamento.
               </p>
 
-              <div class="tags">
+              <div class="tags" aria-label="Temas trabalhados">
                 <span>Comunicação</span>
                 <span>Conflitos</span>
                 <span>Ciúmes</span>
@@ -187,40 +218,45 @@
                 <span>Intimidade</span>
               </div>
             </article>
+
           </div>
         </div>
       </section>
 
-      <!-- ================= FRASE ================= -->
+      <!-- ================= FRASE / QUOTE ================= -->
 
-      <section class="quote-section">
-        <div class="container quote-content">
-          <span class="quote-mark">“</span>
+      <section class="quote-section" aria-label="Citação de Paulo Ramão">
+        <div class="container quote-content reveal">
+          <span class="quote-mark" aria-hidden="true">"</span>
 
-          <blockquote>
+          <blockquote cite="#sobre">
             O sentido da minha vida é ajudar você a encontrar um sentido para a
             sua.
           </blockquote>
 
-          <span class="quote-author"> — Paulo Sérgio Ramão </span>
+          <cite class="quote-author">— Paulo Sérgio Ramão</cite>
         </div>
       </section>
 
-      <!-- ================= ATENDIMENTO ================= -->
+      <!-- ================= ATENDIMENTO / SERVICE ================= -->
 
-      <section class="service section">
+      <section class="service section" aria-labelledby="service-heading">
         <div class="container service-grid">
-          <div class="service-image">
+
+          <div class="service-image reveal">
             <img
-              src="assets/img2.jpeg"
-              alt="Espaço de atendimento terapêutico"
+              src="assets/img3.jpg"
+              alt="Sala de atendimento terapêutico aconchegante e discreta em Assis/SP"
+              width="768"
+              height="1024"
+              loading="lazy"
             />
           </div>
 
-          <div class="service-content">
-            <span class="eyebrow"> ATENDIMENTO </span>
+          <div class="service-content reveal" style="transition-delay: 0.1s">
+            <span class="eyebrow">Atendimento</span>
 
-            <h2>Presencial ou online, onde você estiver.</h2>
+            <h2 id="service-heading">Presencial ou online, onde você estiver.</h2>
 
             <p>
               As sessões podem acontecer online, através de Google Meet,
@@ -233,51 +269,52 @@
               discreto, privativo e aconchegante.
             </p>
 
-            <div class="service-details">
-              <div>
-                <span class="detail-icon">01</span>
+            <div class="service-details" role="list" aria-label="Modalidades de atendimento">
 
+              <div class="service-detail-item" role="listitem">
+                <div class="detail-icon" aria-hidden="true">01</div>
                 <div>
                   <strong>Online</strong>
-                  <p>Atendimento à distância com privacidade.</p>
+                  <p>Atendimento à distância com privacidade e conforto.</p>
                 </div>
               </div>
 
-              <div>
-                <span class="detail-icon">02</span>
-
+              <div class="service-detail-item" role="listitem">
+                <div class="detail-icon" aria-hidden="true">02</div>
                 <div>
                   <strong>Presencial</strong>
-                  <p>Atendimento em Assis/SP.</p>
+                  <p>Atendimento em Assis/SP, em sala acolhedora e reservada.</p>
                 </div>
               </div>
 
-              <div>
-                <span class="detail-icon">03</span>
-
+              <div class="service-detail-item" role="listitem">
+                <div class="detail-icon" aria-hidden="true">03</div>
                 <div>
                   <strong>Horários diferenciados</strong>
                   <p>Atendimento à noite e aos sábados.</p>
                 </div>
               </div>
+
             </div>
           </div>
+
         </div>
       </section>
 
-      <!-- ================= SOBRE ================= -->
+      <!-- ================= SOBRE / ABOUT ================= -->
 
-      <section class="about section" id="sobre">
+      <section class="about section" id="sobre" aria-labelledby="about-heading">
         <div class="container about-grid">
-          <div class="about-content">
-            <span class="eyebrow"> SOBRE MIM </span>
 
-            <h2>Uma história construída para servir.</h2>
+          <div class="about-content reveal">
+            <span class="eyebrow">Sobre mim</span>
+
+            <h2 id="about-heading">Uma história construída para servir.</h2>
 
             <p>
               Meu nome é Paulo Sérgio Ramão, casado com a Denise há 30 anos, pai
-              de quatro filhos Gisele e Pedro (estes dois já no Céu), Caio e
-              Maria Eduarda e avô da Clara.
+              de quatro filhos — Gisele e Pedro (estes dois já no Céu), Caio e
+              Maria Eduarda — e avô da Clara.
             </p>
 
             <p>
@@ -290,182 +327,178 @@
               Sou católico apostólico romano, consagrado a Nossa Senhora e
               membro da Comunidade de Aliança Restauração, reconhecida pela
               Igreja Católica Apostólica Romana, na cidade e diocese de
-              Assis/SP. A Comunidade mantém a Casa de Acolhida Restauração,
-              comunidade terapêutica para indivíduos do sexo masculino, maiores
-              de 18 anos, em situação de vulnerabilidade e risco social
-              relacionados ao uso e abuso de álcool e drogas.
+              Assis/SP.
             </p>
 
             <p>
               Semanalmente, voluntariamente, já há 14 anos, conduzo momentos de
-              espiritualidade com os internos, bem como presto atendimento de
-              escuta, aconselhamento, direcionamento espiritual e orações de
-              cura interior e de libertação. Também, voluntariamente, atendo
-              pessoas e casais que me procuram para momentos de escuta,
-              aconselhamento e direcionamento espiritual e orações de cura e de
+              espiritualidade e presto atendimento de escuta, aconselhamento,
+              direcionamento espiritual e orações de cura interior e de
               libertação.
             </p>
           </div>
 
-          <div class="about-highlight">
-            <span class="about-symbol">✦</span>
+          <div class="about-highlight reveal" style="transition-delay: 0.12s">
+            <div class="about-symbol" aria-hidden="true">✦</div>
 
-            <p>
-              “Deus só permite o mal porque saberá extrair dele um bem muito
-              melhor e elevado.”
-            </p>
+            <blockquote>
+              "Deus só permite o mal porque saberá extrair dele um bem muito
+              melhor e elevado."
+            </blockquote>
           </div>
+
         </div>
       </section>
 
-      <!-- ================= PROCESSO ================= -->
+      <!-- ================= PROCESSO / HOW IT WORKS ================= -->
 
-      <section class="process section">
+      <section class="process section" aria-labelledby="process-heading">
         <div class="container">
-          <div class="section-heading centered">
-            <span class="eyebrow"> COMO FUNCIONA </span>
 
-            <h2>Um primeiro passo pode começar com uma conversa.</h2>
+          <div class="section-heading centered reveal">
+            <span class="eyebrow">Como funciona</span>
+            <h2 id="process-heading">Um primeiro passo pode começar com uma conversa.</h2>
           </div>
 
-          <div class="process-grid">
-            <div class="process-item">
-              <span>01</span>
+          <div class="process-grid" role="list">
 
+            <div class="process-item reveal" role="listitem">
+              <div class="process-step" aria-label="Etapa 1">01</div>
               <h3>Conversa inicial</h3>
-
               <p>
-                Um primeiro encontro de 30 minutos para acolhimento, compreensão
-                e esclarecimento das suas dúvidas.
+                Um primeiro encontro de 30 minutos, gratuito, para acolhimento,
+                compreensão e esclarecimento das suas dúvidas. Sem compromisso.
               </p>
             </div>
 
-            <div class="process-item">
-              <span>02</span>
-
+            <div class="process-item reveal" role="listitem" style="transition-delay: 0.1s">
+              <div class="process-step" aria-label="Etapa 2">02</div>
               <h3>Conhecer sua história</h3>
-
               <p>
                 A partir das suas necessidades, expectativas e momento de vida,
-                buscamos compreender o melhor caminho.
+                buscamos compreender juntos o melhor caminho a seguir.
               </p>
             </div>
 
-            <div class="process-item">
-              <span>03</span>
-
+            <div class="process-item reveal" role="listitem" style="transition-delay: 0.2s">
+              <div class="process-step" aria-label="Etapa 3">03</div>
               <h3>Começar o processo</h3>
-
               <p>
-                As sessões seguintes possuem duração de aproximadamente 50
-                minutos e podem ocorrer semanal ou quinzenalmente.
+                As sessões seguintes têm duração de aproximadamente 50 minutos
+                e podem ocorrer semanal ou quinzenalmente, conforme sua evolução.
               </p>
             </div>
+
           </div>
         </div>
       </section>
 
       <!-- ================= FAQ ================= -->
 
-      <section class="faq section" id="faq">
+      <section class="faq section" id="faq" aria-labelledby="faq-heading">
         <div class="container faq-grid">
-          <div class="faq-intro">
-            <span class="eyebrow"> DÚVIDAS </span>
 
-            <h2>Talvez sua dúvida já esteja aqui.</h2>
+          <div class="faq-intro reveal">
+            <span class="eyebrow">Dúvidas</span>
+
+            <h2 id="faq-heading">Talvez sua dúvida já esteja aqui.</h2>
 
             <p>
               Caso não encontre a resposta que procura, entre em contato. Será
               um prazer conversar com você.
             </p>
 
-            <a href="#contato" class="text-link"> Falar comigo → </a>
+            <a href="#contato" class="text-link" id="faq-contact-link">
+              Falar comigo →
+            </a>
           </div>
 
-          <div class="faq-list">
-            <details>
+          <div class="faq-list reveal" style="transition-delay: 0.1s">
+
+            <details id="faq-1">
               <summary>
                 Um católico pode fazer terapia?
-                <span>+</span>
+                <span class="faq-toggle" aria-hidden="true">+</span>
               </summary>
-
               <p>
                 Não só pode como deve. A saúde mental de uma pessoa é
                 fundamental para que viva uma espiritualidade plena e
                 verdadeira.
               </p>
-
               <p>
                 O Papa Francisco disse certa vez em entrevista que ele mesmo
                 procurou apoio terapêutico durante um tempo de sua vida.
               </p>
             </details>
 
-            <details>
+            <details id="faq-2">
               <summary>
                 Como funcionam as sessões?
-                <span>+</span>
+                <span class="faq-toggle" aria-hidden="true">+</span>
               </summary>
-
               <p>
                 A primeira sessão tem duração de 30 minutos e é um momento de
                 acolhimento e compreensão, onde você poderá falar sobre o que
-                está vivendo, suas expectativas e tirar dúvidas sobre o
-                processo.
+                está vivendo, suas expectativas e tirar dúvidas — sem custo.
               </p>
-
               <p>
-                Essa sessão inicial não tem custo. As demais sessões têm duração
-                de 50 minutos, com frequência semanal ou quinzenal, conforme a
-                necessidade e evolução.
-              </p>
-
-              <p>
-                No início do tratamento é ideal que seja semanal, e em alguns
-                casos até mesmo duas vezes na semana, para que se possa
-                acompanhar o processo e promover avanços consistentes.
+                As demais sessões têm duração de 50 minutos, com frequência
+                semanal ou quinzenal, conforme a necessidade e evolução.
               </p>
             </details>
 
-            <details>
+            <details id="faq-3">
               <summary>
                 Quantas sessões são necessárias?
-                <span>+</span>
+                <span class="faq-toggle" aria-hidden="true">+</span>
               </summary>
-
               <p>
                 O processo terapêutico é personalizado e varia de acordo com a
-                necessidade, compromisso e evolução de cada pessoa.
+                necessidade, compromisso e evolução de cada pessoa. Não há um
+                número fixo — o ritmo é determinado em conjunto.
               </p>
             </details>
 
-            <details>
+            <details id="faq-4">
               <summary>
                 Como é feito o pagamento?
-                <span>+</span>
+                <span class="faq-toggle" aria-hidden="true">+</span>
               </summary>
-
               <p>
                 O pagamento das sessões é feito previamente, normalmente via
                 Pix. Outras formas de pagamento poderão ser combinadas
                 diretamente.
               </p>
             </details>
+
+            <details id="faq-5">
+              <summary>
+                O atendimento online é tão eficaz quanto o presencial?
+                <span class="faq-toggle" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Sim. O ambiente digital permite a mesma profundidade de escuta
+                e acolhimento. O importante é que você esteja em um local
+                tranquilo, privado e confortável no momento da sessão.
+              </p>
+            </details>
+
           </div>
+
         </div>
       </section>
 
-      <!-- ================= CTA ================= -->
+      <!-- ================= CTA / CONTATO ================= -->
 
-      <section class="contact" id="contato">
+      <section class="contact" id="contato" aria-labelledby="contact-heading">
         <div class="container contact-content">
-          <span class="eyebrow"> VAMOS CONVERSAR </span>
+          <span class="eyebrow">Vamos conversar</span>
 
-          <h2>Talvez o próximo passo seja simplesmente conversar.</h2>
+          <h2 id="contact-heading">Talvez o próximo passo seja simplesmente conversar.</h2>
 
           <p>
             Entre em contato para tirar suas dúvidas e agendar uma conversa
-            inicial.
+            inicial gratuita, sem compromisso.
           </p>
 
           <a
@@ -473,75 +506,168 @@
             target="_blank"
             rel="noopener noreferrer"
             class="button button-light"
+            id="whatsapp-cta"
+            aria-label="Conversar pelo WhatsApp com Paulo Ramão"
           >
             Conversar pelo WhatsApp
-            <span>↗</span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
 
-          <div class="contact-info">
-            <span> +55 (18) 99628-7512 </span>
+          <div class="contact-info" role="contentinfo" aria-label="Informações de contato">
+            <a href="tel:+5518996287512" aria-label="Ligar para Paulo Ramão">
+              +55 (18) 99628-7512
+            </a>
 
-            <span>•</span>
+            <span aria-hidden="true">•</span>
 
-            <span> psramao@gmail.com </span>
+            <a href="mailto:psramao@gmail.com" aria-label="Enviar e-mail para Paulo Ramão">
+              psramao@gmail.com
+            </a>
           </div>
+
+          <div class="trust-badges" role="list" aria-label="Diferenciais do atendimento">
+            <div class="trust-badge" role="listitem">
+              <span class="trust-badge-icon" aria-hidden="true">🔒</span>
+              <span>Sigilo absoluto</span>
+            </div>
+            <div class="trust-badge" role="listitem">
+              <span class="trust-badge-icon" aria-hidden="true">💬</span>
+              <span>1ª conversa gratuita</span>
+            </div>
+            <div class="trust-badge" role="listitem">
+              <span class="trust-badge-icon" aria-hidden="true">🌿</span>
+              <span>Ambiente acolhedor</span>
+            </div>
+            <div class="trust-badge" role="listitem">
+              <span class="trust-badge-icon" aria-hidden="true">✝️</span>
+              <span>Perspectiva católica</span>
+            </div>
+          </div>
+
         </div>
       </section>
+
     </main>
 
     <!-- ================= FOOTER ================= -->
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container footer-content">
+
         <div>
-          <a href="#inicio" class="logo footer-logo">
+          <a href="#inicio" class="logo footer-logo" aria-label="Ir para o topo">
             <span>Paulo Ramão</span>
             <small>Terapeuta Católico</small>
           </a>
-
-          <p>Esposo, pai, avô; todo de Maria!</p>
+          <p class="footer-tagline">Esposo, pai, avô;<br>todo de Maria!</p>
         </div>
 
-        <div class="footer-links">
-          <a href="#inicio">Início</a>
-          <a href="#terapias">Terapias</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#faq">Dúvidas</a>
-        </div>
+        <nav aria-label="Links do rodapé">
+          <p class="footer-col-title">Navegação</p>
+          <div class="footer-links">
+            <a href="#inicio">Início</a>
+            <a href="#terapias">Terapias</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#faq">Dúvidas</a>
+            <a href="#contato">Contato</a>
+          </div>
+        </nav>
 
-        <div class="footer-contact">
-          <strong>Contato</strong>
+        <address>
+          <p class="footer-col-title">Contato</p>
+          <div class="footer-contact">
+            <a href="tel:+5518996287512">+55 (18) 99628-7512</a>
+            <a href="mailto:psramao@gmail.com">psramao@gmail.com</a>
+            <a
+              href="https://wa.me/5518996287512"
+              target="_blank"
+              rel="noopener noreferrer"
+            >WhatsApp</a>
+          </div>
+        </address>
 
-          <a href="tel:+5518996287512"> +55 (18) 99628-7512 </a>
-
-          <a href="mailto:psramao@gmail.com"> psramao@gmail.com </a>
-        </div>
       </div>
 
       <div class="container footer-bottom">
-        <span> © 2026 Paulo Sérgio Ramão </span>
-
-        <span> Todos os direitos reservados. </span>
+        <span>© 2026 Paulo Sérgio Ramão · Todos os direitos reservados.</span>
+        <span>Assis / SP · Brasil</span>
       </div>
     </footer>
 
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
-      const menuButton = document.querySelector(".menu-button");
-      const nav = document.querySelector(".nav");
+      /* ---- Mobile menu toggle ---- */
+      const menuButton = document.getElementById('menu-toggle');
+      const nav = document.querySelector('.nav');
 
-      menuButton.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        menuButton.classList.toggle("active");
+      menuButton.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('active');
+        menuButton.classList.toggle('active');
+        menuButton.setAttribute('aria-expanded', isOpen);
+        menuButton.setAttribute(
+          'aria-label',
+          isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'
+        );
       });
 
-      document.querySelectorAll(".nav a").forEach((link) => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("active");
-          menuButton.classList.remove("active");
+      /* Close menu on nav-link click */
+      document.querySelectorAll('.nav a').forEach((link) => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          menuButton.classList.remove('active');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Abrir menu de navegação');
+        });
+      });
+
+      /* Close menu on outside click */
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+          nav.classList.remove('active');
+          menuButton.classList.remove('active');
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      /* ---- Header shrink on scroll ---- */
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      /* ---- Scroll-reveal animation ---- */
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px',
+        }
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      /* ---- Smooth scroll for anchor links ---- */
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       });
     </script>
+
   </body>
 </html>
