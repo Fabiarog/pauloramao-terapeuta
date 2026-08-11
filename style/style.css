@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    background-color: #8ac1dd;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: #1a1b1b solid 2px;
+    border-top: #1a1b1b solid 2px;
+}
+
+body {
+    background-color: #34778f;
+    margin: 0;
+    padding: 0;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    visibility: hidden; 
+    opacity: 0;         
+}
+
+
+header:hover ul {
+    visibility: visible;
+    opacity: 1;       
+}
+
+header a {
+    display: inline-block;
+    margin-right: 20px;
+    color: #1a1b1b;
+}
+
