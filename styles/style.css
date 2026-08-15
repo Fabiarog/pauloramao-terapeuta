@@ -104,6 +104,72 @@ ol {
   --transition-fast: all 0.2s ease;
 }
 
+/* ================= HARMONIOUS ANIMATIONS / KEYFRAMES ================= */
+
+/* Gentle breathing pulse — for decorative icons and symbols */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+/* Soft floating — for cards and floating elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Gentle shimmer — for eyebrow decorative lines */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Slow ambient drift — for background decorative circles */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -10px) scale(1.03); }
+  50% { transform: translate(-8px, 12px) scale(0.97); }
+  75% { transform: translate(-12px, -6px) scale(1.02); }
+}
+
+/* Soft color-shift glow for dark sections */
+@keyframes ambientGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Gentle glow pulse — for CTA buttons */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 6px 22px rgba(45, 90, 76, 0.28); }
+  50% { box-shadow: 0 8px 32px rgba(45, 90, 76, 0.42); }
+}
+
+/* Warm glow pulse — for WhatsApp CTA */
+@keyframes warmGlowPulse {
+  0%, 100% { box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
+  50% { box-shadow: 0 8px 30px rgba(196, 122, 90, 0.28); }
+}
+
+/* Soft gradient shift for backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Quote mark gentle sway */
+@keyframes sway {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(1.5deg); }
+  75% { transform: translateX(-50%) rotate(-1.5deg); }
+}
+
+/* Stagger fade-in for child elements */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ================= GLOBAL ================= */
 
 .container {
@@ -136,8 +202,10 @@ ol {
   display: inline-block;
   width: 20px;
   height: 1.5px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+  background-size: 200% 100%;
   border-radius: var(--radius-pill);
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 /* ================= TYPOGRAPHY ================= */
@@ -217,9 +285,24 @@ p {
 
 .logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1.1;
   gap: 3px;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.header.scrolled .logo-img {
+  height: 50px;
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.03);
 }
 
 .logo span {
@@ -374,6 +457,7 @@ p {
     transparent 70%
   );
   pointer-events: none;
+  animation: drift 18s ease-in-out infinite;
 }
 
 .hero::after {
@@ -389,6 +473,7 @@ p {
     transparent 70%
   );
   pointer-events: none;
+  animation: drift 22s ease-in-out infinite reverse;
 }
 
 .hero-grid {
@@ -457,11 +542,13 @@ p {
   background: var(--primary);
   color: white;
   box-shadow: 0 6px 22px rgba(45, 90, 76, 0.28);
+  animation: glowPulse 3.5s ease-in-out infinite;
 }
 
 .button-primary:hover {
   background: var(--primary-dark);
   box-shadow: 0 10px 30px rgba(45, 90, 76, 0.35);
+  animation: none;
 }
 
 .button-secondary {
@@ -481,11 +568,13 @@ p {
   color: var(--primary);
   border-color: transparent;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  animation: warmGlowPulse 3.5s ease-in-out infinite;
 }
 
 .button-light:hover {
   background: var(--bg-warm);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+  animation: none;
 }
 
 /* Arrow icon inside button */
@@ -587,11 +676,13 @@ p {
   width: fit-content;
   max-width: 100%;
   transition: var(--transition);
+  animation: float 5s ease-in-out infinite;
 }
 
 .image-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+  animation-play-state: paused;
 }
 
 .image-card-icon {
@@ -605,6 +696,7 @@ p {
   color: var(--accent);
   border-radius: 50%;
   font-size: 16px;
+  animation: breathe 4s ease-in-out infinite;
 }
 
 .image-card div {
@@ -647,6 +739,7 @@ p {
     transparent 60%
   );
   pointer-events: none;
+  animation: drift 20s ease-in-out infinite;
 }
 
 .intro-content {
@@ -660,7 +753,8 @@ p {
 }
 
 .intro .eyebrow::before {
-  background: var(--accent-light);
+  background: linear-gradient(90deg, var(--accent-light), rgba(255,255,255,0.6), var(--accent-light));
+  background-size: 200% 100%;
 }
 
 .intro h2 {
@@ -773,11 +867,23 @@ p {
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-bottom: 48px;
+  transition: var(--transition);
+}
+
+.therapy-card:hover .card-number {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
 }
 
 .therapy-card.featured .card-number {
   background: var(--accent-muted);
   color: var(--accent);
+}
+
+.therapy-card.featured:hover .card-number {
+  background: var(--accent);
+  color: white;
 }
 
 .therapy-card h3 {
@@ -808,6 +914,19 @@ p {
   background: var(--bg-cream);
   transition: var(--transition-fast);
 }
+
+/* Staggered entrance for tags when parent card becomes visible */
+.reveal.visible .tags span {
+  animation: fadeInUp 0.5s ease both;
+}
+.reveal.visible .tags span:nth-child(1) { animation-delay: 0.08s; }
+.reveal.visible .tags span:nth-child(2) { animation-delay: 0.14s; }
+.reveal.visible .tags span:nth-child(3) { animation-delay: 0.20s; }
+.reveal.visible .tags span:nth-child(4) { animation-delay: 0.26s; }
+.reveal.visible .tags span:nth-child(5) { animation-delay: 0.32s; }
+.reveal.visible .tags span:nth-child(6) { animation-delay: 0.38s; }
+.reveal.visible .tags span:nth-child(7) { animation-delay: 0.44s; }
+.reveal.visible .tags span:nth-child(8) { animation-delay: 0.50s; }
 
 .tags span:hover {
   background: var(--primary-muted);
@@ -842,6 +961,7 @@ p {
   line-height: 1;
   user-select: none;
   pointer-events: none;
+  animation: sway 10s ease-in-out infinite;
 }
 
 .quote-content {
@@ -1032,6 +1152,7 @@ blockquote {
 
   color: var(--accent-light);
   font-size: 18px;
+  animation: breathe 4.5s ease-in-out infinite;
 }
 
 .about-highlight blockquote,
@@ -1099,6 +1220,13 @@ blockquote {
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 44px;
+  transition: var(--transition);
+}
+
+.process-item:hover .process-step {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
 }
 
 .process-item h3 {
@@ -1196,14 +1324,20 @@ summary:hover {
   font-weight: 300;
   line-height: 1;
   transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 details[open] .faq-toggle {
   transform: rotate(45deg);
   background: var(--primary);
   color: white;
+}
+
+/* Smooth expand animation for FAQ answers */
+details[open] p {
+  animation: fadeInUp 0.4s ease both;
 }
 
 details p {
@@ -1242,6 +1376,7 @@ details p + p {
     transparent 65%
   );
   pointer-events: none;
+  animation: drift 24s ease-in-out infinite;
 }
 
 .contact::after {
@@ -1257,6 +1392,7 @@ details p + p {
     transparent 65%
   );
   pointer-events: none;
+  animation: drift 20s ease-in-out infinite reverse;
 }
 
 .contact-content {
@@ -1272,7 +1408,8 @@ details p + p {
 }
 
 .contact .eyebrow::before {
-  background: var(--accent-light);
+  background: linear-gradient(90deg, var(--accent-light), rgba(255,255,255,0.6), var(--accent-light));
+  background-size: 200% 100%;
 }
 
 .contact h2 {
@@ -1330,6 +1467,12 @@ details p + p {
   gap: 8px;
   font-size: 12px;
   color: var(--text-on-dark-muted);
+  transition: var(--transition);
+}
+
+.trust-badge:hover {
+  color: var(--text-on-dark);
+  transform: translateY(-2px);
 }
 
 .trust-badge-icon {
@@ -1352,7 +1495,7 @@ details p + p {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 50px;
   padding-bottom: 60px;
 }
@@ -1413,6 +1556,270 @@ details p + p {
   color: rgba(255, 255, 255, 0.28);
   gap: 16px;
   flex-wrap: wrap;
+}
+
+/* ================= FLOATING ACTION BUTTONS (FABs) ================= */
+
+@keyframes fabEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+  position: relative;
+  animation: fabEnter 0.6s ease both;
+  flex-shrink: 0;
+}
+
+.fab:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* FAQ button */
+.fab-faq {
+  background: var(--primary);
+  animation-delay: 0.15s;
+}
+
+.fab-faq:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 28px rgba(45, 90, 76, 0.38);
+}
+
+/* Social Media Toggle Button */
+.fab-social-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.fab-social-toggle {
+  background: var(--accent);
+  animation-delay: 0.3s;
+}
+
+.fab-social-toggle:hover {
+  background: #b56a4a;
+  box-shadow: 0 8px 28px rgba(196, 122, 90, 0.4);
+}
+
+/* Icon swap: share visible by default, close hidden */
+.fab-social-toggle .fab-icon-share {
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-social-toggle .fab-icon-close {
+  display: none;
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When active: swap icons */
+.fab-social-toggle.active .fab-icon-share {
+  display: none;
+}
+
+.fab-social-toggle.active .fab-icon-close {
+  display: block;
+  animation: fabIconSpin 0.35s ease;
+}
+
+@keyframes fabIconSpin {
+  from { transform: rotate(-90deg) scale(0.6); opacity: 0; }
+  to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* ---- Social Menu (horizontal, right to left) ---- */
+
+.fab-social-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fab-social-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Individual social icon buttons */
+.fab-social-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateX(16px) scale(0.7);
+}
+
+.fab-social-menu.active .fab-social-item {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Staggered entrance — right to left (WhatsApp first, then FB, then IG) */
+.fab-social-menu.active .fab-social-whatsapp {
+  transition-delay: 0.04s;
+}
+
+.fab-social-menu.active .fab-social-facebook {
+  transition-delay: 0.1s;
+}
+
+.fab-social-menu.active .fab-social-instagram {
+  transition-delay: 0.16s;
+}
+
+.fab-social-item:hover {
+  transform: translateY(-3px) scale(1.12);
+}
+
+/* Brand colors */
+.fab-social-instagram {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.fab-social-instagram:hover {
+  box-shadow: 0 6px 22px rgba(225, 48, 108, 0.45);
+}
+
+.fab-social-facebook {
+  background: #1877f2;
+}
+
+.fab-social-facebook:hover {
+  box-shadow: 0 6px 22px rgba(24, 119, 242, 0.45);
+}
+
+.fab-social-whatsapp {
+  background: #25d366;
+}
+
+.fab-social-whatsapp:hover {
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+}
+
+/* Tooltip labels */
+.fab-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-dark);
+  color: white;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateY(-50%) translateX(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fab-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--bg-dark);
+  border-right: none;
+}
+
+.fab:hover .fab-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Hide tooltip when social menu is open to avoid overlap */
+.fab-social-toggle.active .fab-tooltip {
+  opacity: 0 !important;
+}
+
+/* ================= FOOTER SOCIAL LINKS ================= */
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-size: 13px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.58);
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: white;
+  padding-left: 4px;
+}
+
+.footer-social svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer-social a:hover svg {
+  opacity: 1;
 }
 
 /* ================= ACCESSIBILITY ================= */
@@ -1648,6 +2055,36 @@ details:focus-visible {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  .fab-container {
+    bottom: 20px;
+    right: 18px;
+    gap: 12px;
+  }
+
+  .fab {
+    width: 48px;
+    height: 48px;
+  }
+
+  .fab svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fab-social-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  .fab-social-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .fab-social-menu {
+    gap: 8px;
   }
 }
 

@@ -71,3 +71,32 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     }
   });
 });
+
+/* ---- Social Media FAB toggle ---- */
+const socialToggle = document.getElementById("fab-social-toggle");
+const socialMenu = document.getElementById("fab-social-menu");
+
+if (socialToggle && socialMenu) {
+  socialToggle.addEventListener("click", () => {
+    const isOpen = socialToggle.classList.toggle("active");
+    socialMenu.classList.toggle("active");
+    socialToggle.setAttribute("aria-expanded", isOpen);
+    socialToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Fechar redes sociais" : "Abrir redes sociais",
+    );
+  });
+
+  /* Close social menu on outside click */
+  document.addEventListener("click", (e) => {
+    if (
+      !socialToggle.contains(e.target) &&
+      !socialMenu.contains(e.target)
+    ) {
+      socialToggle.classList.remove("active");
+      socialMenu.classList.remove("active");
+      socialToggle.setAttribute("aria-expanded", "false");
+      socialToggle.setAttribute("aria-label", "Abrir redes sociais");
+    }
+  });
+}
