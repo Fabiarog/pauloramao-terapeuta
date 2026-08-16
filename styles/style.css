@@ -313,6 +313,11 @@ p {
   transition: var(--transition-fast);
 }
 
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo small {
   font-size: 9px;
   font-weight: 500;
